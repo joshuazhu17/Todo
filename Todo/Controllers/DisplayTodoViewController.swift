@@ -35,22 +35,23 @@ class DisplayTodoViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier, let destination = segue.destination as? ListTodoTableViewController else {return}
+        guard let identifier = segue.identifier else {return}
         
         switch identifier {
         case "save" where todo != nil:
             todo?.title = titleTextField.text ?? ""
             todo?.content = contentTextView.text ?? ""
+            todo?.modificationTime = Date()
             
-            destination.tableView.reloadData()
+            CoreDataHelper.saveTodo()
         case "save" where todo == nil:
-            let todo = Todo()
+            let todo = CoreDataHelper.newTodo()
             todo.title = titleTextField.text ?? ""
             todo.content = contentTextView.text ?? ""
             
             todo.modificationTime = Date()
             
-            destination.todos.append(todo)
+            CoreDataHelper.saveTodo()
         
         case "cancel" :
             print("Cancel bar button item tapped")

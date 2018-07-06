@@ -28,4 +28,33 @@ struct CoreDataHelper {
         
         return todo
     }
+    
+    static func saveTodo() {
+        do {
+            try context.save()
+        } catch let error {
+            print("Could not save \(error.localizedDescription)")
+        }
+    }
+    
+    static func deleteTodo(_ todo: Todo) {
+        context.delete(todo)
+        
+        saveTodo()
+    }
+    
+    static func retrieveTodos() -> [Todo] {
+        
+        let fetchRequest = NSFetchRequest<Todo>(entityName: "Todo")
+        let sort = NSSortDescriptor(key: #keyPath(Todo.modificationTime), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+            return [Todo]()
+        }
+    }
 }

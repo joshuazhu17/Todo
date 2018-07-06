@@ -19,6 +19,8 @@ class ListTodoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        todos = CoreDataHelper.retrieveTodos()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -27,7 +29,9 @@ class ListTodoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            todos.remove(at: indexPath.row)
+            CoreDataHelper.deleteTodo(todos[indexPath.row])
+            
+            todos = CoreDataHelper.retrieveTodos()
         }
     }
     
@@ -56,7 +60,7 @@ class ListTodoTableViewController: UITableViewController {
         return cell
     }
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        
+        todos = CoreDataHelper.retrieveTodos()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {
