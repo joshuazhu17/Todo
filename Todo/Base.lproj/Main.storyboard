@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u2p-Xo-LIX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BY1-4b-E9h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Todo Table View Controller-->
+        <!--Todo-->
         <scene sceneID="dVN-r5-8ll">
             <objects>
                 <tableViewController id="u2p-Xo-LIX" customClass="ListTodoTableViewController" customModule="Todo" sceneMemberID="viewController">
@@ -87,6 +88,7 @@
                                     <outlet property="todoDescriptionLabel" destination="AZr-bz-UUF" id="Kha-Qh-1wJ"/>
                                     <outlet property="todoTimeStampLabel" destination="tIp-8H-arh" id="0TG-ab-wzu"/>
                                     <outlet property="todoTitleLabel" destination="f7Y-8a-RAV" id="hrG-Yi-ODH"/>
+                                    <segue destination="sKb-Rk-UmW" kind="show" identifier="displayTodo" id="vPC-U5-EY8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -95,10 +97,94 @@
                             <outlet property="delegate" destination="u2p-Xo-LIX" id="msW-Ug-yhm"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Todo" id="Kvy-Pb-wJa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HDB-sI-UR2">
+                            <connections>
+                                <segue destination="sKb-Rk-UmW" kind="show" identifier="addTodo" id="be2-Lm-BIr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-TP-ue3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="267"/>
+            <point key="canvasLocation" x="1501.5999999999999" y="266.71664167916043"/>
+        </scene>
+        <!--Todo-->
+        <scene sceneID="8Pt-Zu-JHt">
+            <objects>
+                <viewController id="sKb-Rk-UmW" customClass="DisplayTodoViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rvg-La-Trk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-tv-kdy">
+                                <rect key="frame" x="15" y="74" width="345" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sbh-Wn-1WQ">
+                                <rect key="frame" x="15" y="114" width="345" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sbh-Wn-1WQ" firstAttribute="leading" secondItem="CeX-e4-Tsp" secondAttribute="leading" constant="15" id="2S1-Ov-uhm"/>
+                            <constraint firstItem="CeX-e4-Tsp" firstAttribute="trailing" secondItem="h4b-tv-kdy" secondAttribute="trailing" constant="15" id="7C9-vs-56k"/>
+                            <constraint firstItem="h4b-tv-kdy" firstAttribute="leading" secondItem="CeX-e4-Tsp" secondAttribute="leading" constant="15" id="AQj-hT-0TV"/>
+                            <constraint firstItem="CeX-e4-Tsp" firstAttribute="trailing" secondItem="Sbh-Wn-1WQ" secondAttribute="trailing" constant="15" id="Cna-mo-U84"/>
+                            <constraint firstItem="Sbh-Wn-1WQ" firstAttribute="top" secondItem="h4b-tv-kdy" secondAttribute="bottom" constant="10" id="CuX-lf-lUq"/>
+                            <constraint firstItem="h4b-tv-kdy" firstAttribute="top" secondItem="CeX-e4-Tsp" secondAttribute="top" constant="10" id="DoN-uJ-8Sx"/>
+                            <constraint firstItem="CeX-e4-Tsp" firstAttribute="bottom" secondItem="Sbh-Wn-1WQ" secondAttribute="bottom" constant="15" id="F5M-hH-zEh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CeX-e4-Tsp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Todo" id="i4w-Cc-SMH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3kx-M4-i1b">
+                            <connections>
+                                <segue destination="cuq-hD-sFJ" kind="unwind" identifier="cancel" unwindAction="unwindWithSegue:" id="iJ9-7J-Cz2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MZ6-Ys-Ln9">
+                            <connections>
+                                <segue destination="cuq-hD-sFJ" kind="unwind" identifier="save" unwindAction="unwindWithSegue:" id="V2b-ZT-xas"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="Sbh-Wn-1WQ" id="LSD-Xv-wCW"/>
+                        <outlet property="titleTextField" destination="h4b-tv-kdy" id="kUv-c3-0fZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6PJ-17-F0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cuq-hD-sFJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2298.4000000000001" y="266.71664167916043"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XWz-RP-8v9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BY1-4b-E9h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mMe-Ku-GFl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u2p-Xo-LIX" kind="relationship" relationship="rootViewController" id="uFG-PD-ITl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rV-i7-Une" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="562.39999999999998" y="266.71664167916043"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="be2-Lm-BIr"/>
+    </inferredMetricsTieBreakers>
 </document>
