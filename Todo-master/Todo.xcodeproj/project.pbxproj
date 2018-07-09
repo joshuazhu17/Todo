@@ -15,8 +15,8 @@
 		2E4A07AB1C42F497007F415F /* DisplayTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A07AA1C42F497007F415F /* DisplayTodoViewController.swift */; };
 		2E4A07AF1C42F539007F415F /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A07AE1C42F539007F415F /* Date+convertToString.swift */; };
 		2E4A07B11C42F599007F415F /* ListTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A07B01C42F599007F415F /* ListTodoTableViewCell.swift */; };
+		4205181B20F00589006E1105 /* MakeSchoolNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B373405320EFE30A00F87C1B /* MakeSchoolNotes.xcdatamodeld */; };
 		B373405120EFDC9B00F87C1B /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373405020EFDC9B00F87C1B /* CoreDataHelper.swift */; };
-		B373405520EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B373405320EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,7 +83,7 @@
 				2E4A07A61C42F3F2007F415F /* Views */,
 				2E4A07A71C42F3F2007F415F /* Models */,
 				2E4A07931C42F3B0007F415F /* AppDelegate.swift */,
-				B373405320EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodeld */,
+				B373405320EFE30A00F87C1B /* MakeSchoolNotes.xcdatamodeld */,
 				2E4A07971C42F3B0007F415F /* Main.storyboard */,
 				2E4A079A1C42F3B0007F415F /* Assets.xcassets */,
 				2E4A079C1C42F3B0007F415F /* LaunchScreen.storyboard */,
@@ -207,10 +207,10 @@
 			files = (
 				2E4A07B11C42F599007F415F /* ListTodoTableViewCell.swift in Sources */,
 				2E4A07AF1C42F539007F415F /* Date+convertToString.swift in Sources */,
-				B373405520EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodeld in Sources */,
 				2E4A07AB1C42F497007F415F /* DisplayTodoViewController.swift in Sources */,
 				B373405120EFDC9B00F87C1B /* CoreDataHelper.swift in Sources */,
 				2E4A07941C42F3B0007F415F /* AppDelegate.swift in Sources */,
+				4205181B20F00589006E1105 /* MakeSchoolNotes.xcdatamodeld in Sources */,
 				2E4A07A91C42F40B007F415F /* ListTodoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,13 +397,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B373405320EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodeld */ = {
+		B373405320EFE30A00F87C1B /* MakeSchoolNotes.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				B373405420EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodel */,
 			);
 			currentVersion = B373405420EFE30A00F87C1B /* MakeSchoolTodos.xcdatamodel */;
-			path = MakeSchoolTodos.xcdatamodeld;
+			path = MakeSchoolNotes.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

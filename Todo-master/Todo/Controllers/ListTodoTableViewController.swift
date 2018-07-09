@@ -81,25 +81,36 @@ class ListTodoTableViewController: UITableViewController {
             cell.onButtonTouched = {
                 (cell) in guard let indexPath = tableView.indexPath(for: cell) else { return }
                 let todo = self.todos[indexPath.row]
-                if todo.completed == false {
-                    todo.completed = true
-                    self.doneTodos.append(todo)
-                    self.todos.remove(at:indexPath.row)
-                    CoreDataHelper.saveTodo()
-                }
+                todo.completed = true
+                self.doneTodos.append(todo)
+                self.todos.remove(at:indexPath.row)
+                CoreDataHelper.saveTodo()
             }
         
             cell.todoDescriptionLabel.text = todo.content
             cell.todoTitleLabel.text = todo.title
             cell.todoTimeStampLabel.text = todo.modificationTime?.convertToString() ?? "unknown"
+            cell.accessoryType = .none
+            cell.todoCompleteButton.setTitle("Complete", for: .normal)
             return cell
             
         case 1:
             let completedTodo = doneTodos[indexPath.row]
             
+            cell.onButtonTouched = {
+                (cell) in guard let indexPath = tableView.indexPath(for: cell) else { return }
+                let completedTodo = self.doneTodos[indexPath.row]
+                completedTodo.completed = false
+                self.todos.append(completedTodo)
+                self.doneTodos.remove(at:indexPath.row)
+                CoreDataHelper.saveTodo()
+            }
+            
             cell.todoDescriptionLabel.text = completedTodo.content
             cell.todoTitleLabel.text = completedTodo.title
             cell.todoTimeStampLabel.text = completedTodo.modificationTime?.convertToString() ?? "unknown"
+            cell.accessoryType = .checkmark
+            cell.todoCompleteButton.setTitle("Uncomplete", for: .normal)
             return cell
             
         default:

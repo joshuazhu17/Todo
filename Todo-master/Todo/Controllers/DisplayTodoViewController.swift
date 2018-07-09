@@ -48,8 +48,8 @@ class DisplayTodoViewController: UIViewController {
             let todo = CoreDataHelper.newTodo()
             todo.title = titleTextField.text ?? ""
             todo.content = contentTextView.text ?? ""
-            
             todo.modificationTime = Date()
+            todo.completed = false
             
             CoreDataHelper.saveTodo()
         
